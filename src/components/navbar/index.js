@@ -1,13 +1,21 @@
 import React from "react";
-import { Box, Button, Container, Flex, Input, Text } from "@chakra-ui/react";
-// import { GoDiamond } from "react-icons/go";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Input,
+  Text,
+  InputGroup,
+  InputLeftElement,
+  IconButton,
+} from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
-// import Avatar, { genConfig } from "react-nice-avatar";
 import { motion } from "framer-motion";
+import { IoSearchOutline } from "react-icons/io5";
 
 const Navbar = () => {
-  // const [account, setAccount] = useState("");
   const routes = [
     {
       name: "explore",
@@ -18,8 +26,6 @@ const Navbar = () => {
       to: "/community",
     },
   ];
-
-  // const config = genConfig(account);
 
   return (
     <motion.div
@@ -33,15 +39,27 @@ const Navbar = () => {
             <Box display={"flex"} gap="50px" alignItems={"center"}>
               <Text color="text.white">Logo</Text>
 
-              <Input
-                placeholder="Search items"
-                bg="#2D2D39"
-                border="none"
-                color="text.white"
-                outline="none"
-                w="271px"
-                display={{ base: "none", md: "flex", lg: "flex" }}
-              />
+              <InputGroup>
+                <InputLeftElement>
+                  <IconButton
+                    icon={<IoSearchOutline />}
+                    bg="transparent"
+                    _hover={{ bg: "transparent" }}
+                  />
+                </InputLeftElement>
+                <Input
+                  placeholder="Search items"
+                  bg="#2D2D39"
+                  border="none"
+                  color="text.white"
+                  outline="none"
+                  w="271px"
+                  display={{ base: "none", md: "flex", lg: "flex" }}
+                  _placeholder={{
+                    color: "gray.100",
+                  }}
+                />
+              </InputGroup>
 
               <Box
                 display={{ base: "none", md: "flex", lg: "flex" }}
@@ -84,21 +102,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             </Box>
-
-            {/* {account ? (
-              <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
-            ) : (
-              <Button
-                variant={"outline"}
-                rightIcon={<GoDiamond />}
-                onClick={connectWallet}
-                _hover={{
-                  bg: "gray.500",
-                }}
-              >
-                Connect Wallet
-              </Button>
-            )} */}
           </Flex>
         </Container>
       </Box>

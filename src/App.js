@@ -9,6 +9,28 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { createWeb3Modal, defaultConfig } from "@web3modal/ethers/react";
+
+const projectId = "f3178203766e11fc2e3f42e291781dd7";
+
+const mainnet = {
+  chainId: 1,
+  name: "Ethereum",
+  currency: "ETH",
+  explorerUrl: "https://etherscan.io",
+  rpcUrl: "https://cloudflare-eth.com",
+};
+
+const metadata = {
+  name: "NFT Market",
+  description: "Sample nft market",
+};
+
+createWeb3Modal({
+  ethersConfig: defaultConfig({ metadata }),
+  chains: [mainnet],
+  projectId,
+});
 
 const App = () => {
   return (

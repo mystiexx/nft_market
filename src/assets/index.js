@@ -6,5 +6,6 @@ import nft_5 from "./nft_5.jpg";
 import nft_6 from "./nft_6.jpg";
 import nft_7 from "./nft_7.jpg";
 import recover from "./recover.jpg";
+import beast from "./beast.jpg";
 
-export { nft_1, nft_2, nft_3, nft_4, nft_5, nft_6, nft_7, recover };
+export { nft_1, nft_2, nft_3, nft_4, nft_5, nft_6, nft_7, recover, beast };

@@ -36,14 +36,13 @@ const Jumbo = () => {
             <Box display={{ base: "block", md: "grid" }} placeItems={"center"}>
               <Flex
                 mt="24px"
-                alignItems={"center"}
+                alignItems={{ base: "none", md: "center", lg: "center" }}
                 gap="24px"
                 flexDir={{ base: "column", md: "row" }}
               >
                 <Link to="/explore">
                   <Button
-                    variant={"solid"}
-                    w={{ base: "full", md: "auto" }}
+                    w={{ base: "full", md: "auto", lg: "auto" }}
                     _hover={{
                       bg: "background.red",
                     }}

@@ -5,17 +5,26 @@ export const NFTCard = ({ data }) => {
   return (
     <Box
       w={{ base: "300px", md: "300px", lg: "300px" }}
-      bgColor="#393848"
       borderRadius={"5px"}
+      position={"relative"}
+      h="300px"
     >
       <Image
         src={data.image}
         objectFit="cover"
         w="100%"
-        h="250px"
-        borderTopRadius={"5px"}
+        h="300px"
+        borderRadius={"5px"}
+        position={"absolute"}
       />
-      <Box p="16px">
+      <Box
+        p="16px"
+        position={"absolute"}
+        bottom={0}
+        bgColor="#3938480F"
+        w="full"
+        backdropFilter={"blur(10.7px)"}
+      >
         <Text
           color="primary.white.700"
           fontWeight={600}
