@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, Button, Container, Flex, Input, Text } from "@chakra-ui/react";
-import { GoDiamond } from "react-icons/go";
-import { NavLink } from "react-router-dom";
+// import { GoDiamond } from "react-icons/go";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
-import Avatar, { genConfig } from "react-nice-avatar";
+// import Avatar, { genConfig } from "react-nice-avatar";
 import { motion } from "framer-motion";
 
 const Navbar = () => {
-  const [account, setAccount] = useState("");
+  // const [account, setAccount] = useState("");
   const routes = [
     {
       name: "explore",
@@ -19,50 +19,8 @@ const Navbar = () => {
     },
   ];
 
-  const checkIfWalletIsConnected = async () => {
-    try {
-      const { ethereum } = window;
-      if (!ethereum) {
-        console.alert("Make sure you have Metamask!");
-      } else {
-        console.log("We have the ethereum Object", ethereum);
-      }
-      const accounts = await ethereum.request({ method: "eth_accounts" });
+  // const config = genConfig(account);
 
-      if (accounts.length !== 0) {
-        const account = accounts[0];
-        setAccount(account);
-      } else {
-        console.log("No authorized account find");
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    checkIfWalletIsConnected();
-  }, []);
-
-  const config = genConfig(account);
-
-  const connectWallet = async () => {
-    try {
-      const { ethereum } = window;
-
-      if (!ethereum) {
-        alert("Get MetaMask!!");
-        return;
-      }
-
-      const accounts = await ethereum.request({
-        method: "eth_requestAccounts",
-      });
-      setAccount(accounts[0]);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <motion.div
       initial={{ y: -250 }}
@@ -79,6 +37,7 @@ const Navbar = () => {
                 placeholder="Search items"
                 bg="#2D2D39"
                 border="none"
+                color="text.white"
                 outline="none"
                 w="271px"
                 display={{ base: "none", md: "flex", lg: "flex" }}
@@ -103,7 +62,30 @@ const Navbar = () => {
               </Box>
             </Box>
 
-            {account ? (
+            <Box display={{ base: "none", md: "flex", lg: "flex" }} gap="20px">
+              <Link to="login">
+                <Button
+                  _hover={{
+                    bg: "background.red",
+                  }}
+                >
+                  Log in
+                </Button>
+              </Link>
+
+              <Link to="/sign_up">
+                <Button
+                  variant={"outline"}
+                  _hover={{
+                    bg: "gray.500",
+                  }}
+                >
+                  Sign up
+                </Button>
+              </Link>
+            </Box>
+
+            {/* {account ? (
               <Avatar style={{ width: "3rem", height: "3rem" }} {...config} />
             ) : (
               <Button
@@ -116,7 +98,7 @@ const Navbar = () => {
               >
                 Connect Wallet
               </Button>
-            )}
+            )} */}
           </Flex>
         </Container>
       </Box>

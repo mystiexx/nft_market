@@ -65,7 +65,7 @@ export const Theme = extendTheme({
           bg: "#F72F46",
           color: "#fff",
           fontSize: "14px",
-          fontWeight: "500",
+          fontWeight: "600",
           borderRadius: "10px",
         },
       },

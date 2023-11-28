@@ -4,7 +4,7 @@ import Navbar from "components/navbar";
 
 const Layout = ({ children }) => {
   return (
-    <Box display={"flex"} flexDir={"column"} flex="1">
+    <Box>
       <Navbar />
       <Box>{children}</Box>
     </Box>

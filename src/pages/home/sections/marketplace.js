@@ -8,9 +8,9 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { nfts } from "utils/enums";
 
 const Marketplace = () => {
-  const newArray = new Array(10).fill(null);
   const sliderRef = useRef(null);
 
   const handleSlider = (direction) => {
@@ -28,12 +28,12 @@ const Marketplace = () => {
     <Box position={"relative"} mt="100px">
       <Container maxW="container.xl">
         <Text color="text.white" fontSize={30} fontWeight={700} mb="24px">
-          New on Marketplace
+          Our Collections
         </Text>
 
         <div className={styles.card_wrapper} ref={sliderRef}>
-          {newArray.map((_, idx) => (
-            <NFTCard key={idx} />
+          {nfts.map((data, idx) => (
+            <NFTCard key={idx} data={data} />
           ))}
         </div>
 

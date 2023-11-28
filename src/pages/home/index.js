@@ -4,6 +4,7 @@ import Jumbo from "./sections/jumbo";
 import Marketplace from "./sections/marketplace";
 import { Box } from "@chakra-ui/react";
 import ExtraCard from "./sections/extraCard";
+import Recover from "./sections/recover";
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
         <Jumbo />
         <ExtraCard />
         <Marketplace />
+        <Recover />
       </Box>
     </Layout>
   );
