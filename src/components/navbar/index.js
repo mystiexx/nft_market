@@ -43,6 +43,7 @@ const Navbar = () => {
                 <InputLeftElement>
                   <IconButton
                     icon={<IoSearchOutline />}
+                    display={{ base: "none", md: "block", lg: "block" }}
                     bg="transparent"
                     _hover={{ bg: "transparent" }}
                   />

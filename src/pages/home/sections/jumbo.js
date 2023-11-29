@@ -1,9 +1,11 @@
 import React from "react";
 import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
 import styles from "./styles.module.css";
-import { Link } from "react-router-dom";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers/react";
 
 const Jumbo = () => {
+  const { open } = useWeb3Modal();
+  const { isConnected } = useWeb3ModalAccount();
   return (
     <div>
       <Box className={styles.background} />
@@ -16,21 +18,23 @@ const Jumbo = () => {
         >
           <Box>
             <Text
-              fontSize={{ base: "30px", md: "70px", lg: "70px" }}
+              fontSize={{ base: "30px", md: "60px", lg: "60px" }}
               color="text.white"
               fontWeight={900}
               textAlign={"center"}
+              w={{ base: "full", md: "950px", lg: "950px" }}
             >
-              <span style={{ color: "#F72F46" }}>Discover</span> awesome
-              collectibles
+              <span style={{ color: "#F72F46" }}>Unlock</span> the world of
+              crypto and discover awesome collectibles
             </Text>
             <Text
               color="gray.100"
               textAlign={"center"}
-              fontSize={"16px"}
+              fontSize={"20px"}
               fontWeight={500}
             >
-              Buy unique collectibles NFTs in our marketplace
+              Buy, Sell, and Explore NFTs with Ease – Your Gateway to the
+              Digital Economy
             </Text>
 
             <Box display={{ base: "block", md: "grid" }} placeItems={"center"}>
@@ -40,20 +44,24 @@ const Jumbo = () => {
                 gap="24px"
                 flexDir={{ base: "column", md: "row" }}
               >
-                <Link to="/explore">
-                  <Button
-                    w={{ base: "full", md: "auto", lg: "auto" }}
-                    _hover={{
-                      bg: "background.red",
-                    }}
-                  >
-                    Explore Items
-                  </Button>
-                </Link>
+                <Button
+                  w={{ base: "full", md: "auto", lg: "auto" }}
+                  onClick={() => {
+                    isConnected ? open({ view: "Account" }) : open();
+                  }}
+                  _hover={{
+                    bg: "background.red",
+                  }}
+                >
+                  Explore Items
+                </Button>
 
                 <Button
                   variant={"outline"}
                   w={{ base: "full", md: "auto" }}
+                  onClick={() => {
+                    isConnected ? open({ view: "Account" }) : open();
+                  }}
                   _hover={{
                     bg: "gray.500",
                   }}

@@ -2,8 +2,11 @@ import React from "react";
 import { Box, Button, Container, Text, Image, Flex } from "@chakra-ui/react";
 import warrior from "assets/warrior.jpg";
 import { Link } from "react-router-dom";
+import { useWeb3Modal, useWeb3ModalAccount } from "@web3modal/ethers/react";
 
 const ExtraCard = () => {
+  const { open } = useWeb3Modal();
+  const { isConnected } = useWeb3ModalAccount();
   return (
     <Container maxW="container.xl">
       <Box
@@ -91,6 +94,9 @@ const ExtraCard = () => {
               <Button
                 variant={"solid"}
                 position={"relative"}
+                onClick={() => {
+                  isConnected ? open({ view: "Account" }) : open();
+                }}
                 zIndex={5}
                 _hover={{
                   bg: "background.red",
