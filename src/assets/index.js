@@ -11,6 +11,7 @@ import binance from "./binance.png";
 import ethereum from "./ethereum.png";
 import polygon from "./polygon.png";
 import solana from "./solana.png";
+import logo from "./logo.png";
 
 export {
   nft_1,
@@ -26,4 +27,5 @@ export {
   ethereum,
   polygon,
   solana,
+  logo,
 };

@@ -14,8 +14,8 @@ const Home = () => {
       <Box pb="100px" display="flex" flexDir="column">
         <Jumbo />
         <ExtraCard />
-        <CryptoTable />
         <Marketplace />
+        <CryptoTable />
         <Recover />
         <Contact />
       </Box>

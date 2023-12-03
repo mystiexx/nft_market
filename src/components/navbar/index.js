@@ -9,11 +9,13 @@ import {
   InputGroup,
   InputLeftElement,
   IconButton,
+  Image,
 } from "@chakra-ui/react";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./styles.module.css";
 import { motion } from "framer-motion";
 import { IoSearchOutline } from "react-icons/io5";
+import { logo } from "assets";
 
 const Navbar = () => {
   const routes = [
@@ -37,13 +39,18 @@ const Navbar = () => {
         <Container maxW="container.xl">
           <Flex justifyContent={"space-between"} alignItems={"center"}>
             <Box display={"flex"} gap="50px" alignItems={"center"}>
-              <Text color="text.white">Logo</Text>
+              <Flex alignItems={"center"} gap="10px">
+                <Image src={logo} alt="logo" w="50px" h="50px" />
+                <Text color="text.white" fontWeight={900}>
+                  MintMoon
+                </Text>
+              </Flex>
 
-              <InputGroup>
+              <InputGroup ml="50px">
                 <InputLeftElement>
                   <IconButton
                     icon={<IoSearchOutline />}
-                    display={{ base: "none", md: "block", lg: "block" }}
+                    display={{ base: "none", md: "flex", lg: "flex" }}
                     bg="transparent"
                     _hover={{ bg: "transparent" }}
                   />
